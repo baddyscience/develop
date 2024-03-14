@@ -1,4 +1,5 @@
-#include<iostream>
+#include <iostream>
+
 using namespace std;
 
 class Stack {
@@ -8,7 +9,7 @@ private:
     int len;
 
 public:
-    Stack(): tt(-1), len(1000) {
+    Stack(): tt(-1),len(1000) {
         data = new int[len];
         cout << "constructing" << endl;
     }
@@ -45,7 +46,7 @@ public:
 
     void output() {
         for (int i = 0; i <= tt; i++) {
-            cout << data[i] << " ";
+            cout << data[i] << " "; 
         }
         if (tt >= 0) {
             cout << endl;
@@ -60,22 +61,23 @@ int main() {
     Stack stack;
 
     for (int i = 0; i < n; i++) {
-        int command;
-        cin >> command;
-        if (command == 1) {
+        int commend;
+        cin >> commend;
+        if (commend == 1) {
             int a;
             cin >> a;
             stack.push(a);
-        } else if (command == 2) {
+        } else if (commend == 2) {
             stack.pop();
-        } else if (command == 3) {
+        } else if (commend == 3) {
             int v;
+            cin >> v;
             if (stack.top(v)) {
                 cout << v << endl;
             }
-        } else if (command == 4) {
+        } else if (commend == 4) {
             cout << stack.size() << endl;
-        } else if (command == 5) {
+        } else if (commend == 5) {
             stack.output();
         }
     }
