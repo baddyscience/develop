@@ -71,7 +71,6 @@ int main() {
             stack.pop();
         } else if (commend == 3) {
             int v;
-            cin >> v;
             if (stack.top(v)) {
                 cout << v << endl;
             }
