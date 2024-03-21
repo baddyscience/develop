@@ -99,10 +99,9 @@ public:
         cin >> page;
     }
 
-    void dispaly1() {
-        cout << "1";
+    void display() {
         Publication::display();
-        cout << 1;
+        cout << "pages:" << page << endl;
     }
 };
 
@@ -141,7 +140,7 @@ int main() {
    Book b;
    CD c( 1, 2, 3, "Noname", "肖邦钢琴协奏曲", 61, 2018, 8, 1 );
    b.inputdata();
-   b.display1();
+   b.display();
    c.display();    
    return 0;
 }
