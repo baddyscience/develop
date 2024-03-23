@@ -73,8 +73,8 @@ public:
 			myString ms;
 			myString temp;
 			if(start > len) {
-			ms.len = 0;
-			return ms;
+			    ms.len = 0;
+			    return ms;
 			}
 			if(start + l <= len) {
 			    temp.len = l;
