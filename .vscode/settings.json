@@ -3,6 +3,7 @@
         "cstdio": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "algorithm": "cpp"
     }
 }

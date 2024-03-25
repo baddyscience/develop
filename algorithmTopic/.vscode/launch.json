@@ -9,14 +9,14 @@
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "E:\\minGW\\bin\\gdb.exe",
             "setupCommands": [
                 {
                     "description": "为 gdb 启用整齐打印",
                     "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
+                    "ignoreFailures": false
                 },
                 {
                     "description": "将反汇编风格设置为 Intel",
