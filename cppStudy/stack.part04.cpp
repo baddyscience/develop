@@ -63,7 +63,6 @@ public:
         return tt + 1;
     }
 
-    // 在 Stack 类内部添加友元声明
     friend ostream& operator<<(ostream& os, const Stack& s);
 
     // void output() {
@@ -76,7 +75,6 @@ public:
     // }
 };
 
-// 在 Stack 类外部定义重载的 << 运算符
 ostream& operator<<(ostream& os, const Stack& s) {
     if (s.tt >= 0) {
         for (int i = 0; i <= s.tt; i++) {
