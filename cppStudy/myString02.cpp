@@ -1,13 +1,3 @@
-// 在《字符串类的实现1》的基础上，增加 myString字符串类 的方法：
-
-// size()，返回当前对象含字符的个数，如果不含字符串，返回0
-// int set( char s[] )，逐字符拷贝 s[] 到 data[]，len 也要相应改变。返回值是新的字符个数，即 len
-// 重载 赋值运算符 myString &operator= ( const myString &b ) ：将右侧运算对象 myString对象赋值给 左侧运算对象 myString对象。
-// 注意：1. 如果左侧运算对象的data非空，要先释放；2. 要实现深拷贝。 关于深拷贝，可参考最下方的附录
-// 重载 +运算符 myString operator+ ( const myString &b ) ：把右侧运算对象 b 的 data 追加到左侧运算对象 a 的 data 后面，返回一个新对象的引用
-// 取子串函数 sub( int start, int l )：返回一个 myString 对象，其 data 为当前对象的 data[start, start + l]。注意：当开始位置 start 大于当前对象的字符个数时，返回一个 data 为空的对象；当 start + l 大于当前对象字符总数时，取到末尾
-// 补充完成以下程序：
-
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -73,8 +63,8 @@ public:
 			myString ms;
 			myString temp;
 			if(start > len) {
-			    ms.len = 0;
-			    return ms;
+			ms.len = 0;
+			return ms;
 			}
 			if(start + l <= len) {
 			    temp.len = l;
