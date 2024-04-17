@@ -2,3 +2,14 @@
 
 Baddyscience's learning repository, a record of completed school works and some simple algorithmic exercises - mainly from leetcode and luogu.
 
+## alogorithmTopic
+
+- only code
+
+  
+
+## cppStudy
+
+- Includes a description of the topic
+- Part of the code is commented (what's not there won't be made up) :)
+- 不怕钟sir双杀你就cv :)
