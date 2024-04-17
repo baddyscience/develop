@@ -1,13 +1,4 @@
 # develop
 
-readme.........
+Baddyscience's learning repository, a record of completed school works and some simple algorithmic exercises - mainly from leetcode and luogu.
 
-1.
-
-2.
-
-3.
-
-4.
-
-5.
