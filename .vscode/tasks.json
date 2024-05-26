@@ -9,7 +9,11 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-L",  // 在库文件的搜索路径列表中添加dir目录，
+                "C:\\MinGw\\lib",
+                "-leasyx",
+                "-lstdc++"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -22,7 +26,7 @@
                 "isDefault": true
             },
             "detail": "调试器生成的任务。"
-        }
+        },
     ],
     "version": "2.0.0"
 }

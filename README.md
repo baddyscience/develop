@@ -28,5 +28,5 @@ Baddyscience's learning repository, a record of completed school works and some 
 
 ## stm32
 
-- use Vu5(MDK354,Keil.STM32F1xx_DFP.2.4.0)
+- use Vu5(MDK534,Keil.STM32F1xx_DFP.2.4.0)
 - use stm32F103RB Xtal 8.00
