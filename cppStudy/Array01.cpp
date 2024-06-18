@@ -45,6 +45,7 @@ int main() {
     if (a1 < a2) {
         cout << "a1 < a2" << endl;
     }
+    
     if (a1 > a2) {
         cout << "a1 > a2" << endl;
     }

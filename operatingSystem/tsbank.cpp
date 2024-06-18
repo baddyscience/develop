@@ -70,7 +70,7 @@ int isSafe()                  //安全性检查算法，采用的是回溯法
                 safeList[a++]=p;         //将该进程暂时添加到安全序列里面
                 forward(p,work,finish);   //修改工作向量work=work+allocation,finish[M]=true
 			}
-		    if(c>1)      //如果有2个或以上的进程符合条件need<available，则不用出栈
+		    if(c>1)      //如果有2个或以上的进程符合条件need<available，则不用出栈 
 			{
                 p=stack[b-1];
                 safeList[a++]=p ;
