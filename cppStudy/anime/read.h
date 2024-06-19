@@ -23,20 +23,16 @@ int aWIDTH;
 int circley;
 int codex, codey;
 int codeCirlceLongth;
+int codeCirlceWidth;
+int tableCircleNums;
 int factor;
 int ARROW_LENGTH;
 double ARROW_ANGLE;
-int textHeight ,textWidth;   // 设置字体宽度为自动
+int textHeight ,textWidth;
 std::string textStyle = "黑体";
 int codeCirlceWaitintTime;
 int curveWaitingTime;
 int rectanglesWaitingTime;
-//优化：4350
-//数组下标
-//从文件读取测试用例，准备三个
-//弧线箭头指向temp
-//函数头
-//配置文件
 
 // 函数用于去除注释（从 '//' 开始的部分）
 std::string removeComments(const std::string& line) {
@@ -105,6 +101,18 @@ void readConfig() {
         line = removeComments(line);
         istringstream iss(line);
         iss >> codeCirlceLongth;
+    }
+
+    if (getline(infile, line)) {
+        line = removeComments(line);
+        istringstream iss(line);
+        iss >> codeCirlceWidth;
+    }
+
+    if (getline(infile, line)) {
+        line = removeComments(line);
+        istringstream iss(line);
+        iss >> tableCircleNums;
     }
 
     if (getline(infile, line)) {

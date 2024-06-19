@@ -10,7 +10,61 @@ int tmp = 0;
 int flag = 0;
 int pos = 0;//用来记录最后一次交换的位置
 int k = 0;
-bool isPaused = false;
+bool isPaused = false;//暂停判断标志
+
+//代码运行框专设的类
+class Circle{
+private:
+    COLORREF color;
+    int style;
+    int thickness;
+
+public:
+    Circle() :color(BLACK), style(PS_SOLID), thickness(1) {}//默认设置为黑色，实线，2像素
+
+    Circle(COLORREF setColor, int setStyle, int setThickness) {
+        color = setColor;
+        style = setStyle;
+        thickness = setThickness;
+    }
+
+    ~Circle() { }
+
+    void draw(int x, int y) {
+        setlinecolor(color);
+        setlinestyle(style, thickness);
+        rectangle(x, y, x + codeCirlceLongth, y + codeCirlceWidth);
+    }
+};
+
+//矩形块专设的类
+class Rectangles{
+private:
+    int i;
+    int height;
+    int x;
+    int y;
+    COLORREF color;
+
+public:
+    Rectangles() : i(0), height(0), x(0), y(0) {}
+
+    Rectangles(int ms) : i(ms) {
+        height = arrays[i] * factor; // 根据数组元素的值计算矩形块的高度
+        x = i * width * 2 + animeWidth; // 计算矩形块的左上角横坐标
+        y = animeBotton - height;  // 计算矩形块的左上角纵坐标
+    }
+
+    ~Rectangles() { }
+
+    void drawRectangles() {
+        setlinecolor(BLACK);          // 设置边框颜色为黑色
+        setlinestyle(PS_SOLID, 1);
+        rectangle(x, y, x + width, animeBotton); // 绘制矩形块的边框
+        fillrectangle(x + 1, y, x + width - 1, animeBotton); // 绘制矩形块
+    }
+
+};
 
 void handleKeyboardInput() {
     if (_kbhit()) {  // 检测是否有键盘输入
@@ -63,10 +117,10 @@ void drawArrow(POINT end, POINT prev, int v) {
 		arrowPoint2.x = end.x - ARROW_LENGTH * cos(angle - ARROW_ANGLE);
 		arrowPoint2.y = end.y - ARROW_LENGTH * sin(angle - ARROW_ANGLE);
 	} else {
-		arrowPoint1.x = end.x + ARROW_LENGTH * cos(angle + ARROW_ANGLE);
-		arrowPoint1.y = end.y + ARROW_LENGTH * sin(angle + ARROW_ANGLE);
-		arrowPoint2.x = end.x + ARROW_LENGTH * cos(angle - ARROW_ANGLE);
-		arrowPoint2.y = end.y + ARROW_LENGTH * sin(angle - ARROW_ANGLE);
+		arrowPoint1.x = end.x + ARROW_LENGTH * sin(angle + ARROW_ANGLE);
+		arrowPoint1.y = end.y + ARROW_LENGTH * cos(angle + ARROW_ANGLE);
+		arrowPoint2.x = end.x + ARROW_LENGTH * sin(angle - ARROW_ANGLE);
+		arrowPoint2.y = end.y + ARROW_LENGTH * cos(angle - ARROW_ANGLE);
 	}
     // 绘制箭头
     line(end.x, end.y, arrowPoint1.x, arrowPoint1.y);
@@ -99,7 +153,7 @@ void drawTableCircle() {
 
     setlinecolor(BLACK);          // 设置边框颜色为黑色
     setlinestyle(PS_SOLID, 1);
-    for (int i = 0; i < 14; i++) {
+    for (int i = 0; i < tableCircleNums; i++) {
         rectangle(animeWidth + width * i, circley, animeWidth + width + width * i , circley + width);
     }
 
@@ -147,6 +201,7 @@ void claerCircle() {
     solidrectangle(animeWidth - 30, 50, animeWidth + codeCirlceLongth + 20, animeBotton + 30);
     FlushBatchDraw();
 }
+
 void clearOneCircle(int x, int y) {
     BeginBatchDraw();
     setfillcolor(RGB(255, 255, 255));
@@ -180,17 +235,12 @@ void showCircleMore() {
 void showBlocks01() {
     BeginBatchDraw();
 
-    setlinecolor(BLACK);          // 设置边框颜色为黑色
     settextcolor(BLACK); // 设置文本颜色为黑色
-    setlinestyle(PS_SOLID, 1);    // 设置边框样式为实线，宽度为2像素
     cleardevice();       // 清空屏幕
     for (int i = 0; i < nums; ++i)
     {
-        int height = arrays[i] * factor; // 根据数组元素的值计算矩形块的高度
-        int x = i * width * 2 + animeWidth; // 计算矩形块的左上角横坐标
-        int y = animeBotton - height;  // 计算矩形块的左上角纵坐标
+        Rectangles ones(i);
         setfillcolor(RGB(255, 0, 0)); // 设置矩形块的填充颜色为红色
-        rectangle(x, y, x + width, animeBotton); // 绘制矩形块的边框
         drawTableCircle();//绘制上方的小方格
         if (i == redIndex) {
             outtextxy(animeWidth + width * i + width / 2, circley - width, (LPCTSTR)"i");
@@ -203,7 +253,7 @@ void showBlocks01() {
         outtextxy(animeWidth + width * i + 2, circley + 2, (LPCTSTR)ch);
         sprintf(ch, "%d", i);
         outtextxy(animeWidth + width * i + (width / 2), circley + width + (width / 2), (LPCTSTR)ch);
-        fillrectangle(x + 1, y, x + width - 1, animeBotton); // 绘制矩形块
+        ones.drawRectangles();
     }
     showCircleMore();
 
@@ -213,12 +263,11 @@ void showBlocks01() {
 void codeAnimeStart() {
     showBlocks01();
     for (int i = 0; i < 5; i++) {
+        Circle stream;
         clearShowCode();
         showCode();
         BeginBatchDraw();
-        setlinecolor(BLACK);
-        setlinestyle(PS_SOLID, 1);
-        rectangle(codex - 10, codey - 10 + i * 30, codex + codeCirlceLongth, codey + 25 + i * 30);
+        stream.draw(codex - 10, codey - 10 + i * 30);
         FlushBatchDraw();
         Sleep(codeCirlceWaitintTime);
     }
@@ -227,12 +276,11 @@ void codeAnimeStart() {
 void codeAnime01() {
     
     for (int i = 0; i < 4; i++) {
+        Circle stream;
         clearShowCode();
         showCode();
         BeginBatchDraw();
-        setlinecolor(BLACK);
-        setlinestyle(PS_SOLID, 1);
-        rectangle(codex - 10, codey + 150 - 10 + i * 30, codex + codeCirlceLongth, codey + 150 + 25 + i * 30);
+        stream.draw(codex - 10, codey + 150 - 10 + i * 30);
         FlushBatchDraw();
         Sleep(codeCirlceWaitintTime);
     }
@@ -242,12 +290,11 @@ void codeAnime01() {
 void codeAnime02() {
     
     for (int i = 0; i < 7; i++) {
+        Circle stream;
         clearShowCode();
         showCode();
         BeginBatchDraw();
-        setlinecolor(BLACK);
-        setlinestyle(PS_SOLID, 1);
-        rectangle(codex - 10, codey + 270 - 10 + i * 30, codex + codeCirlceLongth, codey + 270 + 25 + i * 30);
+        stream.draw(codex - 10, codey + 270 - 10 + i * 30);
         FlushBatchDraw();
         Sleep(codeCirlceWaitintTime);
     }
@@ -315,12 +362,11 @@ void codeAnime02() {
 void codeAnime03() {
 
     for (int i = 0; i < 3; i++) {
+        Circle stream;
         clearShowCode();
         showCode();
         BeginBatchDraw();
-        setlinecolor(BLACK);
-        setlinestyle(PS_SOLID, 1);
-        rectangle(codex - 10, codey + 510 - 10 + i * 30, codex + 360, codey + 510 + 25 + i * 30);
+        stream.draw(codex - 10, codey + 510 - 10 + i * 30);
         FlushBatchDraw();
         Sleep(codeCirlceWaitintTime);
     }
@@ -330,22 +376,20 @@ void codeAnime03() {
 void codeAnime04() {
 
     for (int i = 0; i < 2; i++) {
+        Circle stream;
         clearShowCode();
         showCode();
         BeginBatchDraw();
-        setlinecolor(BLACK);
-        setlinestyle(PS_SOLID, 1);
-        rectangle(codex - 10, codey + 480 - 10 + i * 30, codex + 360, codey + 480 + 25 + i * 30);
+        stream.draw(codex - 10, codey + 480 - 10 + i * 30);
         FlushBatchDraw();
         Sleep(codeCirlceWaitintTime);
     }
 
     clearShowCode();
+    Circle stream;
     showCode();
     BeginBatchDraw();
-    setlinecolor(BLACK);
-    setlinestyle(PS_SOLID, 1);
-    rectangle(codex - 10, codey + 480 - 10 + 30, codex + 360, codey + 480 + 25 + 30);
+    stream.draw(codex - 10, codey + 480 - 10 + 30);
     FlushBatchDraw();
     Sleep(codeCirlceWaitintTime);
 }
@@ -355,16 +399,11 @@ void show( ) {
 
     showCode();
     BeginBatchDraw();
-    setlinecolor(BLACK);          // 设置边框颜色为黑色
-    setlinestyle(PS_SOLID, 1);    // 设置边框样式为实线，宽度为2像素
     // 绘制每个数组元素对应的矩形块
     for (int i = 0; i < nums; ++i)
     {
-        int height = arrays[i] * factor; // 根据数组元素的值计算矩形块的高度
-        int x = i * width * 2 + animeWidth; // 计算矩形块的左上角横坐标
-        int y = animeBotton - height;  // 计算矩形块的左上角纵坐标
+        Rectangles ones(i);
         setfillcolor(RGB(0, 0, 255)); // 设置矩形块的填充颜色为蓝色
-        rectangle(x, y, x + width, animeBotton); // 绘制矩形块的边框
         drawTableCircle();//绘制上方的小方格
         if (i < nums - redIndex)
         {
@@ -385,14 +424,11 @@ void show( ) {
         outtextxy(animeWidth + width * i + 2, circley + 2, (LPCTSTR)ch);
         sprintf(ch, "%d", i);
         outtextxy(animeWidth + width * i + (width / 2), circley + width + (width / 2), (LPCTSTR)ch);
-        fillrectangle(x + 1, y, x + width - 1, animeBotton); // 绘制矩形块
-        //Sleep(200); // 等待一段时间，使得矩形块一个个生成
+        ones.drawRectangles();
     }
     showCircleMore();
 
     FlushBatchDraw();
-    //getch();      // 等待按键，保持窗口不关闭
-    //closegraph(); // 关闭绘图窗口
 }
 
 void bubbleSort( ) {
@@ -441,15 +477,10 @@ void bubbleSort( ) {
 
     showCode();
 
-    setlinecolor(BLACK);          // 设置边框颜色为黑色
-    setlinestyle(PS_SOLID, 1);    // 设置边框样式为实线，宽度为2像素
     for (int i = 0; i < nums; ++i)
     {
-        int height = arrays[i] * factor; // 根据数组元素的值计算矩形块的高度
-        int x = i * width * 2 + animeWidth; // 计算矩形块的左上角横坐标
-        int y = animeBotton - height;  // 计算矩形块的左上角纵坐标
+        Rectangles ones(i);
         setfillcolor(RGB(0, 0, 255)); // 设置矩形块的填充颜色为蓝色
-        rectangle(x, y, x + width, animeBotton); // 绘制矩形块的边框
         drawTableCircle();//绘制上方的小方格
         if (i == redIndex) {
             outtextxy(animeWidth + width * i + width / 2, circley - width, (LPCTSTR)"i");
@@ -462,7 +493,7 @@ void bubbleSort( ) {
         outtextxy(animeWidth + width * i + 2, circley + 2, (LPCTSTR)ch);
         sprintf(ch, "%d", i);
         outtextxy(animeWidth + width * i + (width / 2), circley + width + (width / 2), (LPCTSTR)ch);
-        fillrectangle(x + 1, y, x + width - 1, animeBotton); // 绘制矩形块
+        ones.drawRectangles();
     }
     showCircleMore();
 
