@@ -263,6 +263,11 @@ void showBlocks01() {
 void codeAnimeStart() {
     showBlocks01();
     for (int i = 0; i < 5; i++) {
+    start:
+        handleKeyboardInput();
+        if(isPaused){
+            goto start;
+        }
         Circle stream;
         clearShowCode();
         showCode();
@@ -276,6 +281,11 @@ void codeAnimeStart() {
 void codeAnime01() {
     
     for (int i = 0; i < 4; i++) {
+        start:
+        handleKeyboardInput();
+        if(isPaused){
+            goto start;
+        }
         Circle stream;
         clearShowCode();
         showCode();
@@ -290,6 +300,11 @@ void codeAnime01() {
 void codeAnime02() {
     
     for (int i = 0; i < 7; i++) {
+        start:
+        handleKeyboardInput();
+        if(isPaused){
+            goto start;
+        }
         Circle stream;
         clearShowCode();
         showCode();
@@ -298,7 +313,11 @@ void codeAnime02() {
         FlushBatchDraw();
         Sleep(codeCirlceWaitintTime);
     }
-
+    start01:
+        handleKeyboardInput();
+        if(isPaused){
+            goto start01;
+        }
     char ch[20];
 
     POINT start = {js * width + animeWidth + width / 2, circley};
@@ -322,7 +341,11 @@ void codeAnime02() {
     settextcolor(BLACK);
     outtextxy(animeWidth + width * nums + width / 2 - width / 4, circley - width - 50, (LPCTSTR)ch);
     FlushBatchDraw();
-
+    start02:
+        handleKeyboardInput();
+        if(isPaused){
+            goto start02;
+        }
     start = {(js + 1) * width + animeWidth + width / 2, circley + width + 3};
     control = {(js + 1) * width / 2 + js * width / 2 +  animeWidth + width / 2, circley + width + 23};
     end = {js * width + animeWidth + width / 2, circley + width + 3};
@@ -342,7 +365,11 @@ void codeAnime02() {
     settextcolor(BLACK);
     outtextxy(js * width + animeWidth + 2, circley + 2, (LPCTSTR)ch);
     FlushBatchDraw();
-
+    start03:
+        handleKeyboardInput();
+        if(isPaused){
+            goto start03;
+        }
     start = {animeWidth + width * nums + width / 2, circley - 53};
     control = {((js + 1) * width + animeWidth + width + animeWidth + width * nums) / 2 + 30, circley - 26 - 30};
     end = {(js + 1) * width + animeWidth + width / 2, circley};
@@ -357,11 +384,21 @@ void codeAnime02() {
     outtextxy((js + 1) * width + animeWidth + 2, circley + 2, (LPCTSTR)ch);
     FlushBatchDraw();
     Sleep(curveWaitingTime);
+    start04:
+        handleKeyboardInput();
+        if(isPaused){
+            goto start04;
+        }
 }  
 
 void codeAnime03() {
 
     for (int i = 0; i < 3; i++) {
+        start:
+        handleKeyboardInput();
+        if(isPaused){
+            goto start;
+        }
         Circle stream;
         clearShowCode();
         showCode();
@@ -376,6 +413,11 @@ void codeAnime03() {
 void codeAnime04() {
 
     for (int i = 0; i < 2; i++) {
+        start:
+        handleKeyboardInput();
+        if(isPaused){
+            goto start;
+        }
         Circle stream;
         clearShowCode();
         showCode();
@@ -389,7 +431,7 @@ void codeAnime04() {
     Circle stream;
     showCode();
     BeginBatchDraw();
-    stream.draw(codex - 10, codey + 480 - 10 + 30);
+    stream.draw(codex - 10, codey + 600 - 10);
     FlushBatchDraw();
     Sleep(codeCirlceWaitintTime);
 }
@@ -460,7 +502,6 @@ void bubbleSort( ) {
                 show();
                 Sleep(rectanglesWaitingTime);
             } else {
-                handleKeyboardInput();
                 goto start;
             }
 		}
