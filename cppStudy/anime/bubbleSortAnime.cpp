@@ -505,11 +505,11 @@ void bubbleSort( ) {
                 goto start;
             }
 		}
-        codeAnime04();
 		if (flag == 0) {//如果没有交换过元素，则已经有序
             codeAnime03();
 			break;
 		}
+        codeAnime04();
 		k = pos;//下一次比较到记录位置即可
 	}
 
