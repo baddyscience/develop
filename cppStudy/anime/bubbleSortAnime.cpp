@@ -3,7 +3,7 @@
 vector<int> arrays;
 int nums;//测试数组的大小
 int greenIndex;//当前移动的数
-int redIndex = 0;//未排序完成的数
+int is = 0;//i当前所在位置
 int js = 0;//j当前所在位置
 int width;// 计算矩形块的宽度
 int tmp = 0;
@@ -242,7 +242,7 @@ void showBlocks01() {
         Rectangles ones(i);
         setfillcolor(RGB(255, 0, 0)); // 设置矩形块的填充颜色为红色
         drawTableCircle();//绘制上方的小方格
-        if (i == redIndex) {
+        if (i == is) {
             outtextxy(animeWidth + width * i + width / 2, circley - width, (LPCTSTR)"i");
         }
         if (i == js) {
@@ -447,7 +447,7 @@ void show( ) {
         Rectangles ones(i);
         setfillcolor(RGB(0, 0, 255)); // 设置矩形块的填充颜色为蓝色
         drawTableCircle();//绘制上方的小方格
-        if (i < nums - redIndex)
+        if (i < k - 1)
         {
             setfillcolor(RGB(255, 0, 0)); // 将索引为 redIndex 的柱子设为红色
         }
@@ -455,7 +455,7 @@ void show( ) {
         {
             setfillcolor(RGB(0, 255, 0)); // 将索引为 greenIndex 的柱子设为绿色
         }
-        if (i == redIndex) {
+        if (i == is) {
             outtextxy(animeWidth + width * i + width / 2, circley - width, (LPCTSTR)"i");
         }
         if (i == js) {
@@ -479,7 +479,7 @@ void bubbleSort( ) {
 	pos = 0;//用来记录最后一次交换的位置
 	k = nums - 1;
     codeAnimeStart();
-	for (int i = 0; i < nums - 1; i++, ++redIndex) {//确定排序趟数
+	for (int i = 0; i < nums - 1; i++, ++is) {//确定排序趟数
 		codeAnime01();
         pos = 0;
 		flag = 0;
@@ -523,7 +523,7 @@ void bubbleSort( ) {
         Rectangles ones(i);
         setfillcolor(RGB(0, 0, 255)); // 设置矩形块的填充颜色为蓝色
         drawTableCircle();//绘制上方的小方格
-        if (i == redIndex) {
+        if (i == is) {
             outtextxy(animeWidth + width * i + width / 2, circley - width, (LPCTSTR)"i");
         }
         if (i == js) {
