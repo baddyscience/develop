@@ -9,8 +9,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-#include <algorithm>  
-#include <windows.h>
+#include <algorithm>
 #include <string>
 
 using namespace std;
@@ -26,6 +25,7 @@ int codeCirlceLongth;
 int codeCirlceWidth;
 int tableCircleNums;
 int factor;
+int tableCirclueWidth;
 int ARROW_LENGTH;
 double ARROW_ANGLE;
 int textHeight ,textWidth;
@@ -44,6 +44,7 @@ std::string removeComments(const std::string& line) {
 }
 
 void readConfig() {
+    //ifstream infile("D://temp//202224111120//ConsoleApplication1//config.txt");
     ifstream infile("config.txt");
     if (!infile) {
         cerr << "Unable to open config file" << endl;
@@ -119,6 +120,12 @@ void readConfig() {
         line = removeComments(line);
         istringstream iss(line);
         iss >> factor;
+    }
+
+    if (getline(infile, line)) {
+        line = removeComments(line);
+        istringstream iss(line);
+        iss >> tableCirclueWidth;
     }
 
     if (getline(infile, line)) {
