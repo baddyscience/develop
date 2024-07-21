@@ -10,9 +10,10 @@ Baddyscience's learning repository, a record of completed school works and some 
 ## cppStudy
 
 - use *GCC*
-- Includes a description of the topic
+- Includes a large assignment on ‘Anime’, and related assignments for school
+  - ‘Anime’ is a demo animation of the bubbling sort algorithm implemented using *easyx* - a complete mountain of shit - but since the course is over, I'm not going to change it! :)
 - Part of the code is commented *(PS: what's not there won't be made up)* :)
-- 不怕钟sir双杀你就cv :)
+- ~~不怕钟sir双杀你就cv :(~~  随便cv，我的课程已经结束了，你死不死我就不知道了 :)
 
 ## JavaStudy
 
@@ -20,7 +21,7 @@ Baddyscience's learning repository, a record of completed school works and some 
 - Includes a practice project ‘Pokemon’ and will soon include related school assignments
   - ‘Pokemon’ Using the *interllij* system provided by *IDEA*, some of the basics including polymorphism were applied
 - Part of the code is commented  *((PS: what's not there won't be added) PS's PS: as usual)* :)
-- 不怕 ? sir双杀你就cv :)
+- 不怕 ? sir双杀你就cv :(
 
 ## operatingSystem
 
