@@ -1,10 +1,12 @@
 package com.cyx.pokemon.item.equipment;
 
 import com.cyx.pokemon.util.Tools;
+
 /**
  * 鞋子
  */
 public class Shoe extends Equipment{
+
     public Shoe(int levelNumber) {
         super("鞋子", levelNumber);
         this.attack = 0;

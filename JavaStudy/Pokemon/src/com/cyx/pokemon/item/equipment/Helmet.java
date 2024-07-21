@@ -6,6 +6,7 @@ import com.cyx.pokemon.util.Tools;
  * 头盔
  */
 public class Helmet extends Equipment{
+
     public Helmet(int levelNumber) {
         super("头盔", levelNumber);
         this.attack = 0;

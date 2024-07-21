@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="dba69cc2-2abe-48b4-afa7-30c7300b744e" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pokemon.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/DisplayItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/HP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/Monster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/Portal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/Treasure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/equipment/Armor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/equipment/Equipment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/equipment/Helmet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/equipment/Leggings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/equipment/Necklace.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/equipment/Shoe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/item/equipment/Weapon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyx/pokemon/util/Tools.java" afterDir="false" />
-    </list>
+    <list default="true" id="40643ac5-9031-461f-8c3b-300fb34afc87" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,32 +18,53 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
-  <component name="ProjectId" id="2jXnfYtaNKuTbXl0po98dPWc90E" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="1s90iXrZPXgUIiT67FGzzhgjZzL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
+    "last_opened_file_path": "C:/Users/Museum/OneDrive/develop/JavaStudy/pokemon",
     "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.Launcher.executor": "Run"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cyx.pokemon.item.monster" />
+      <recent name="com.cyx.pokemon.item.pokemon" />
+      <recent name="com.cyx.pokemon.item.equipment" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cyx.pokemon.Launcher" />
+      <module name="pokemon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cyx.pokemon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.Launcher" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,18 +74,36 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="默认任务">
-      <changelist id="dba69cc2-2abe-48b4-afa7-30c7300b744e" name="更改" comment="" />
-      <created>1721542393662</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40643ac5-9031-461f-8c3b-300fb34afc87" name="Default Changelist" comment="" />
+      <created>1620269625948</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1721542393662</updated>
-      <workItem from="1721542394695" duration="1626000" />
+      <updated>1620269625948</updated>
+      <workItem from="1620269629157" duration="24285000" />
+      <workItem from="1620435956631" duration="1368000" />
+      <workItem from="1721550572263" duration="70000" />
+      <workItem from="1721550677681" duration="33000" />
+      <workItem from="1721550717397" duration="33000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/cyx/pokemon/level/LevelMap.java</url>
+          <line>192</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
