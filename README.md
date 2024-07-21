@@ -9,9 +9,18 @@ Baddyscience's learning repository, a record of completed school works and some 
 
 ## cppStudy
 
+- use *GCC*
 - Includes a description of the topic
-- Part of the code is commented (what's not there won't be made up) :)
+- Part of the code is commented *(PS: what's not there won't be made up)* :)
 - 不怕钟sir双杀你就cv :)
+
+## JavaStudy
+
+- use *jdk1.8/jre1.8*
+- Includes a practice project ‘Pokemon’ and will soon include related school assignments
+  - ‘Pokemon’ Using the *interllij* system provided by *IDEA*, some of the basics including polymorphism were applied
+- Part of the code is commented  *((PS: what's not there won't be added) PS's PS: as usual)* :)
+- 不怕 ? sir双杀你就cv :)
 
 ## operatingSystem
 
