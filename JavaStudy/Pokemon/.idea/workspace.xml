@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40643ac5-9031-461f-8c3b-300fb34afc87" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Study/src/MyCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.vscode/c_cpp_properties.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.vscode/launch.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.vscode/settings.json" beforeDir="false" />
@@ -40,7 +41,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Museum/OneDrive/develop/JavaStudy/pokemon&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Museum/OneDrive/develop/JavaStudy/Study&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -104,6 +105,11 @@
       <workItem from="1721550717397" duration="33000" />
       <workItem from="1721622530722" duration="1799000" />
       <workItem from="1721722757154" duration="20000" />
+      <workItem from="1721807700430" duration="18000" />
+      <workItem from="1721807830133" duration="14000" />
+      <workItem from="1721807937084" duration="47000" />
+      <workItem from="1721807990532" duration="22000" />
+      <workItem from="1721808019156" duration="42000" />
     </task>
     <servers />
   </component>
