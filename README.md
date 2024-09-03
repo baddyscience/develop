@@ -28,6 +28,11 @@ Baddyscience's learning repository, a record of completed school works and some 
 - use cpp
 - Some simple algorithms for completing school assignments
 
+## python
+
+- use python3.0
+- Part of the code is commented (not really necessary :)  I guess
+
 
 ## simulationExperiment
 
