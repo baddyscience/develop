@@ -2,6 +2,15 @@
 
 Baddyscience's learning repository, a record of completed school works and some simple algorithmic exercises - mainly from leetcode and luogu.
 
+## JavaStudy
+
+- use *jdk1.8/jre1.8*
+- Includes a practice project ‘Pokemon’ and will soon include related school assignments
+  - ‘Pokemon’ Using the *interllij* system provided by *IDEA*, some of the basics including polymorphism were applied
+- Part of the code is commented  *((PS: what's not there won't be added) PS's PS: as usual)* :)
+- 不怕方sir双杀你就cv :(
+
+
 ## alogorithmTopic
 
 - only code
@@ -15,18 +24,12 @@ Baddyscience's learning repository, a record of completed school works and some 
 - Part of the code is commented *(PS: what's not there won't be made up)* :)
 - ~~不怕钟sir双杀你就cv :(~~  随便cv，我的课程已经结束了，你死不死我就不知道了 :)
 
-## JavaStudy
-
-- use *jdk1.8/jre1.8*
-- Includes a practice project ‘Pokemon’ and will soon include related school assignments
-  - ‘Pokemon’ Using the *interllij* system provided by *IDEA*, some of the basics including polymorphism were applied
-- Part of the code is commented  *((PS: what's not there won't be added) PS's PS: as usual)* :)
-- 不怕 ? sir双杀你就cv :(
 
 ## operatingSystem
 
 - use cpp
 - Some simple algorithms for completing school assignments
+
 
 ## python
 
