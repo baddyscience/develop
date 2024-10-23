@@ -15,7 +15,7 @@ public class BroadcastAddressFinder {
                 NetworkInterface networkInterface = interfaces.nextElement();
 
                 // 确保适配器是 Wi-Fi 适配器并且处于活动状态
-                if (networkInterface.isUp() && !networkInterface.isLoopback() && networkInterface.getDisplayName().contains("Wi-Fi")) {
+                if (networkInterface.isUp() && !networkInterface.isLoopback() && networkInterface.getDisplayName().contains("Wi-Fi") || networkInterface.getDisplayName().contains("WiFi")) {
                     Enumeration<InetAddress> addresses = networkInterface.getInetAddresses();
                     while (addresses.hasMoreElements()) {
                         InetAddress address = addresses.nextElement();
