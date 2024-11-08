@@ -7,7 +7,6 @@ def solution(n: int) -> int:
             n //= 2
         else:
             matches += (n - 1) // 2
-            # 剩余 (n - 1) / 2 + 1 支队伍
             n = (n - 1) // 2 + 1
     
     return matches
