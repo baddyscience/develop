@@ -4,14 +4,14 @@ from imageio import imread
 import matplotlib.pyplot as plt
 
 # 读取形状图像
-mask = imread(r"C:\Users\Museum\OneDrive\develop\python\词云\2.jpg")
+mask = imread(r"C:\Users\Museum\OneDrive\develop\python\词云\OIP.jpg")
 
 # 读取文本文件
-with open(r"C:\Users\Museum\OneDrive\develop\python\词云\2020政府工作报告.txt", "r", encoding="utf-8") as f:
+with open(r"C:\Users\Museum\OneDrive\develop\python\词云\1.txt", "r", encoding="utf-8") as f:
     t = f.read()
 
 # 去除停用词
-exwords = ['的', '和', '要']
+exwords = ['的', '和', '要','岁']
 for word in exwords:
     t = t.replace(word, '')
 
@@ -26,8 +26,8 @@ font_path = r"C:\Users\Museum\OneDrive\develop\python\词云\GoNotoKurrent-Bold.
 w = wordcloud.WordCloud(
     font_path=font_path,
     mask=mask,
-    width=1000,
-    height=700,
+    width=2000,
+    height=1400,
     background_color="white"
 )
 
