@@ -30,7 +30,7 @@ def print_csv(file_path):
 
 # 主程序
 def main():
-    file_path = r'C:\Users\Museum\OneDrive\develop\python\通讯录（文件读取）\info.csv'  # 请根据实际文件路径修改
+    file_path = r'通讯录（文件读取）\info.csv'  # 请根据实际文件路径修改
     contact_dict = read_csv_to_dict(file_path)
     
     while True:
