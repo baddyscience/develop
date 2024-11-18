@@ -1,16 +1,3 @@
-# 通过查验居民身份证可以掌握持证人的姓名、性别、出生日期、住址和公民身份证号码等信息，还可以获得居住后和出生地信息。
-# 疫情期间，需要通过查验身份证来实现对一些出生或居住在敏感地区的人进行监控，现在需要你开发这样一个系统，具有以下功能：
-# 1.为测试以上功能，模拟产生一个身份证上的全部信息。具体方法为
-# 1.1 模拟姓名，从百家姓中抽取一个姓，注意百家姓文件中前51行为单姓，51行后面为双字复姓。根据性别从男或女性常用名中取机抽取一个名字。
-# 1.2 模拟出生日期（限制1900-2020），性别随机男女、民族从56个民族中随机取一个
-# 1.3 模拟住址，省、市、县区随机，随机一个小区、100以内整数楼号、房间号格式为 a - b0c,a 为 1-8， b为 0-35，c 为 1-4
-# 1.4  模拟生成身份证号，出生序号随机。
-# 1.5 按身份证格式打印输出模拟产生的身份证
-# 2.输出年龄和性别
-# 3.获取和输出身份证注册地的省、市、县（区）
-# 4.获取持证人居住地的省、市、县（区）
-# 5.根据输入设置敏感地区，判定持证人是否为敏感地区常住人或是敏感地区出生者。
-
 import random
 import datetime
 
@@ -25,7 +12,21 @@ def person_name(gender_of_id, last_name_file, male_name_file, female_name_file):
     先随机抽取一个姓氏，再根据性别随机抽取名字，
     返回表示姓名的字符串。
     """
-点击在此输入一行或多行代码
+    with open(last_name_file, 'r', encoding='utf-8') as data:
+        last = [line.strip().replace('，', '').replace('。', '') for line in data] 
+        last1 = ''.join(last[:51]) 
+        last2 = ''.join(last[51:]) 
+        last = list(last1) + [last2[i * 2: i * 2 + 2] for i in range(len(last2) // 2)] # 得到姓的列表 
+        last_name = random.choice(last) # 随机一个姓 
+    with open(male_name_file, 'r', encoding='utf-8') as data: 
+        male_name = data.readline().split() 
+    with open(female_name_file, 'r', encoding='utf-8') as data: 
+        female_name = data.readline().split() 
+    if gender_of_id == '男': 
+        first_name = random.choice(male_name) 
+    else: 
+        first_name = random.choice(female_name) 
+    return last_name + first_name
 
 
 
@@ -34,7 +35,12 @@ def area_code(area_file):
     @参数 area_file：包含地区编码的文件名，字符串类型
     传入参数为包含地区编码和地区名的文件名的字符串，以地区编码为键，地区名为值构建字典作为返回值。
     """
-点击在此输入一行或多行代码
+    area_of_birth = {} 
+    with open(area_file, 'r', encoding='utf-8') as data: 
+        for x in data: 
+            ls = x.strip().split(',') 
+            area_of_birth[ls[0]] = ls[1] # 得到保存地区编码的字典 
+    return area_of_birth
 
 
 
@@ -76,7 +82,9 @@ def id_of_17(area_of_code, birth_date, birth_order):
     接收地区码字典，出生日期和出生顺序号，随机抽取一个地区码，返回身份证号前17位的字符串。
     需要注意的是，抽取地区码时，要避免抽取到省或地级市的编码(最后2位编码为0)。
     """
-点击在此输入一行或多行代码
+    area_no_city = [x for x in area_of_code.keys() if x[-2:] != '00']
+    area_id = random.choice(area_no_city) # 避免抽到省市的编码 
+    return area_id + birth_date + birth_order
 
 
 
@@ -94,7 +102,11 @@ def id17_to_18(id_number):
        身份证的最后一位号码就是2。
        返回值为18位身份证号，字符串类型。
     """
-点击在此输入一行或多行代码
+    ls = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2] 
+    ecc = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'] 
+    s = sum([int(id_number[i]) * ls[i] for i in range(17)]) #将数字与该位上的权值相乘放入列表并求和 
+    id_number = id_number + ecc[s % 11] #以位权和对11取余为索引获得校验位上的字符 
+    return id_number
 
 
 
@@ -115,7 +127,15 @@ def village_of_live(village_file, area_of_code):
     floor = random.choice(range(1, 35))
     room = random.choice(range(1, 4))
     area_id = random.choice([x for x in list(area_of_code.keys()) if x[-2:] != '00'])  # 避免抽到省市的编码
-点击在此输入一行或多行代码
+    province = area_of_code.get(area_id[:2]+'0000', '') 
+    city = area_of_code.get(area_id[:4]+'00', '') 
+    area = area_of_code[area_id] 
+    if area_id[:2] in ['11', '12', '31', '50']: #北京市，上海市，天津市，重庆市 
+        address_of_live = f'{province}{area}' 
+    else: 
+        address_of_live = f'{province}{city}{area}' 
+    address_of_live = address_of_live + f'{village}{building}栋{door}单元{floor:02}{room:02}室' 
+    return address_of_live, area_id
 
 
 
@@ -125,7 +145,10 @@ def all_of_nation(nation_file):
     传入参数为包含民族的文件名，从中随机抽取一个民族为返回值。
     需要注意的是，返回值里不包含'族'字，例如抽取'蒙古族',返回值为'蒙古'。
     """
-点击在此输入一行或多行代码
+    with open(nation_file, 'r', encoding='utf-8') as data: 
+        nation_name = data.readline().split() 
+    nation = random.choice(nation_name) 
+    return nation[:-1]
 
 
 
@@ -165,7 +188,14 @@ def area_of_registration(id_number, area_of_code):
     需要注意的是，若持证人注册地为直辖市，则住址中无地级市，直接输出市和区，例如：北京市朝阳区
     其他地区格式例如：湖北省武汉市洪山区。
     """
-点击在此输入一行或多行代码
+    code = id_number[:6] 
+    province = area_of_code[code[:2] + '0000'] 
+    city = area_of_code[code[:4] + '00'] 
+    district = area_of_code[code] 
+    if code[:2] in ['11', '12', '31', '50']: # 北京市，上海市，天津市，重庆市 
+        return f'持证人出生于{province}{district}' 
+    else: 
+        return f'持证人出生于{province}{city}{district}'
 
 
 
@@ -177,7 +207,14 @@ def area_of_live(area_id, area_of_code):
     需要注意的是，若持证人居住地为直辖市，则住址中无地级市，直接输出市和区，例如：北京市朝阳区
     其他地区格式例如：湖北省武汉市洪山区。
     """
-点击在此输入一行或多行代码
+    province = area_of_code[area_id[:2] + '0000'] # 根据字典的键获得其值，省份 
+    if area_id[:2] in ['11', '12', '31', '50']: # 北京市，上海市，天津市，重庆市 
+        district = area_of_code[area_id] # 根据字典的键获得其值，县区 
+        return f'持证人居住于{province}{district}' 
+    else: 
+        city = area_of_code[area_id[:4] + '00'] # 根据字典的键获得其值，市区
+        district = area_of_code[area_id] # 根据字典的键获得其值，县区 
+        return f'持证人居住于{province}{city}{district}'
 
 
 
@@ -188,7 +225,10 @@ def check_city_code(city_name, area_of_code):
     @参数 city_name：城市名，字符串
     @参数 area_of_code：地区编码，字典类型
     """
-点击在此输入一行或多行代码
+    for code, name in area_of_code.items():
+        if city_name in name:
+            return code
+    return False
 
 
 
@@ -204,7 +244,12 @@ def check_city(id_number, city_name, city_code, area_live):
     其他情况返回持证人与city_name无关联。以及持证人居住信息。
     返回值均为字符串类型。
     """
-点击在此输入一行或多行代码
+    if city_name in area_live: 
+        return f'持证人居住于{city_name}' 
+    elif city_code[:4] == id_number[:4]: 
+        return f'持证人出生于{city_name}' 
+    else: 
+        return f'持证人与{city_name}无关联'
 
 
 
