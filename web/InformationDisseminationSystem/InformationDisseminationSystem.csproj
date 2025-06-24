@@ -74,6 +74,7 @@
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="PostAdd.aspx" />
+    <Content Include="PostDetail.aspx" />
     <Content Include="PostEdit.aspx" />
     <Content Include="PostManage.aspx" />
     <Content Include="Register.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="PostAdd.aspx.designer.cs">
       <DependentUpon>PostAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostDetail.aspx.cs">
+      <DependentUpon>PostDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostDetail.aspx.designer.cs">
+      <DependentUpon>PostDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="PostEdit.aspx.cs">
       <DependentUpon>PostEdit.aspx</DependentUpon>
